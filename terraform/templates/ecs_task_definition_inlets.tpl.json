@@ -1,0 +1,29 @@
+[{
+  "name": "inlets",
+  "image": "digitalroute/inlets-helper:0.0.3",
+  "cpu": 512,
+  "memoryReservation": 1024,
+  "essential": true,
+  "networkMode": "bridge",
+  "portMappings": [{
+      "containerPort": 8080,
+      "hostPort": 0
+    }
+  ],
+  "command": [
+    "server --port 8080"
+  ],
+  "secrets": [{
+    "name": "INL_TOKEN",
+    "valueFrom": "${INL_TOKEN_SECRET}"
+  }],
+  "logConfiguration": {
+    "logDriver": "awslogs",
+    "options": {
+      "awslogs-region": "${AWS_REGION}",
+      "awslogs-group": "${AWSLOGS_GROUP}",
+      "awslogs-stream-prefix": "inlets"
+    }
+  }
+}
+]
