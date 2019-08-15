@@ -15,7 +15,14 @@ docker run -ti <image> helper --upstream="any.foo.com=http://$(minikube ip):80" 
 docker run -ti <image> --upstream="any.foo.com=http://$(minikube ip):80" --token XYXY --remote wss://foo.com
 ```
 
-# Building the image
+# Integration with secrets
+The docker image adds support for injecting the token as an environment variable, `INL_TOKEN`. This is currently there to allow injecting an AWS KMS secret value.
+
+# Building the helper image
 ```
-docker build --tag foo-helper:0.0.1 --build-arg "INL_REMOTE_URI=wss://foo.com" .
+# Building
+make DOCKER_ARGS='--build-arg "INL_REMOTE_URI=wss://foo.com"' build
+
+# Tag latest and push
+make DOCKER_ARGS='--build-arg "INL_REMOTE_URI=wss://foo.com"' push
 ```
