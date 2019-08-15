@@ -42,7 +42,7 @@ And here is how to use the actual inlets module:
 
 ```terraform
 module "inlets" {
-  source = "git::git@github.com:digitalroute/tf-inlets.git/terraform"
+  source = "git::git@github.com:digitalroute/tf-inlets.git//terraform"
 
   project           = "example-inlets"
   ecs_instance_type = "t3.small"
