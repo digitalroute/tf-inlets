@@ -1,5 +1,5 @@
 data "template_file" "ecs_inlets" {
-  template = "${file("templates/ecs_task_definition_inlets.tpl.json")}"
+  template = "${file("${path.module}/templates/ecs_task_definition_inlets.tpl.json")}"
 
   vars {
     AWS_REGION       = "${data.aws_region.current.name}"

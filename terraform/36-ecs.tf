@@ -18,7 +18,7 @@ data "aws_ami" "ecs_inlets_ami" {
 }
 
 data "template_file" "ecs_inlets_instance_userdata" {
-  template = "${file("templates/ecs_userdata.tpl.sh")}"
+  template = "${file("${path.module}/templates/ecs_userdata.tpl.sh")}"
 
   vars {
     ECS_CLUSTER_NAME = "${aws_ecs_cluster.ecs_inlets.name}"
