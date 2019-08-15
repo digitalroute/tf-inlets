@@ -49,6 +49,7 @@ module "inlets" {
   dns_zone_id       = "${aws_route53_zone.zone.id}"
   dns_zone_name     = "${aws_route53_zone.zone.name}"
   ssh_key_name      = "${aws_key_pair.ssh_key.key_name}"
+  allow_cidr_blocks = ["0.0.0.0/0"]
 
   providers = {
     aws = "aws.example"

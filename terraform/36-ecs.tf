@@ -108,13 +108,6 @@ resource "aws_security_group" "ecs_inlets" {
   vpc_id      = "${aws_vpc.vpc.id}"
 
   ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["212.16.176.26/32", "213.65.53.37/32", "94.246.99.178/32"]
-  }
-
-  ingress {
     from_port       = 32768
     to_port         = 65535
     protocol        = "tcp"
